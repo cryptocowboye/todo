@@ -38,3 +38,36 @@ nav {
 #create-new-project {
     height: 25px;
 }
+
+.todo-creation-container {
+    height: 50px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-todo {
+    width: 100px;
+    height: 25px;
+}
+
+.todo-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.todos-area {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.todo-card {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 200px;
+    background-color: #e4e4e4;
+}
