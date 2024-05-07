@@ -69,11 +69,16 @@ export default class Project {
         return todoCard
 
 
-}
+    }
 
     setProject(obj) {
         this.name = obj.name
         this.id = obj.id
         this.toDosArray = obj.toDosArray
+        this.todoIndex = obj.todoIndex
+    }
+
+    setTodos(arr) {
+        this.toDosArray = arr
     }
 }
