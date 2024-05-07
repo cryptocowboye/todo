@@ -34,6 +34,12 @@ export default class List {
     createProject(name) {
         return new Project(name, this.index)
     }
+
+    reconstructProject(obj) {
+        const project = new Project(obj.name, this.index);
+        project.setProject(obj);
+        return project
+    }
     
     addProjectElement(obj) {
         const parent = document.querySelector(".projects-container");
@@ -68,6 +74,10 @@ export default class List {
         projectContainer.appendChild(projectTitle);
         projectContainer.appendChild(removeBtn);
         parent.appendChild(projectContainer);
+    }
+
+    setIndex() {
+        this.index = (this.projects[this.projects.length - 1].id + 1);
     }
 
 }
