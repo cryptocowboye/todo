@@ -38,6 +38,8 @@ function page () {
             remover()
         })
     }
+
+    remover(true)
 }
 
 page()
