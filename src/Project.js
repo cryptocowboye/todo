@@ -1,4 +1,5 @@
 import Todo from "./Todo";
+import editBtnClick from "./editBtnClick";
 
 export default class Project {
     constructor(name, id) {
@@ -31,15 +32,28 @@ export default class Project {
         return new Todo(title, desc, date, priority, index)
     }
 
+    replaceToDo(obj) {
+        const todoObjIndex = this.findToDoByIndex(obj.index)
+        this.toDosArray[todoObjIndex] = obj
+    }
+
     createToDoElement(toDoObj, thisObj) {
         const todoCard = document.createElement("div")
         const todoTitle = document.createElement("div")
         const todoDesc = document.createElement("div")
         const todoDate = document.createElement("div")
         const todoPriority = document.createElement("div")
+        const btnContainer = document.createElement("div");
         const removeBtn = document.createElement("button")
+        const editBtn = document.createElement("button");
+        const dialog = editBtnClick(this, thisObj, todoTitle, todoDesc, todoDate, todoPriority, toDoObj)
 
         todoCard.classList.add("todo-card")
+
+        editBtn.classList.add("edit-button");
+        removeBtn.classList.add("card-remove-button");
+
+        btnContainer.classList.add("button-container");
 
         todoCard.dataset.title = toDoObj.title
         todoCard.dataset.desc = toDoObj.desc
@@ -51,6 +65,7 @@ export default class Project {
         todoDesc.textContent = toDoObj.desc
         todoDate.textContent = toDoObj.date
         todoPriority.textContent = toDoObj.priority
+        editBtn.textContent = "Edit"
         removeBtn.textContent = "Remove"
 
         removeBtn.addEventListener("click", () => {
@@ -60,11 +75,17 @@ export default class Project {
             todoCard.remove();
         })
 
+        editBtn.addEventListener("click", () => {
+            dialog.show()
+        })
+
+        btnContainer.append(editBtn, dialog, removeBtn);
+
         todoCard.appendChild(todoTitle)
         todoCard.appendChild(todoDesc)
         todoCard.appendChild(todoDate)
         todoCard.appendChild(todoPriority)
-        todoCard.appendChild(removeBtn)
+        todoCard.append(btnContainer);
 
         return todoCard
 
