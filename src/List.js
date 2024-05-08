@@ -68,7 +68,10 @@ export default class List {
             this.removeProject(obj)
             localStorage.setItem("appStorage", JSON.stringify(this))
             projectContainer.remove()
-            remover()
+
+            const isEmpty = true
+
+            remover(isEmpty)
         })
 
         projectContainer.appendChild(projectTitle);
