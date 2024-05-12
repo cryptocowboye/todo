@@ -46,9 +46,10 @@ export default class Project {
         const btnContainer = document.createElement("div");
         const removeBtn = document.createElement("button")
         const editBtn = document.createElement("button");
-        const dialog = editBtnClick(this, thisObj, todoTitle, todoDesc, todoDate, todoPriority, toDoObj)
+        const dialog = editBtnClick(this, thisObj, todoTitle, todoDesc, todoDate, todoPriority, toDoObj, todoCard)
 
         todoCard.classList.add("todo-card")
+        todoCard.style.backgroundColor = `${toDoObj.priority}`
 
         editBtn.classList.add("edit-button");
         removeBtn.classList.add("card-remove-button");
