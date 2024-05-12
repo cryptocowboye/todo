@@ -66,7 +66,8 @@ export default function todosContruction (obj, thisObj) /* testing thisObj */ {
     select.name = "priority-colors";
     select.id = "todo-priority";
 
-    option1.textContent = "---Please choose an option---";
+    option1.textContent = "Purple";
+    option2.value = "purple"
     option2.value = "red";
     option2.textContent = "Red";
     option3.value = "yellow";
