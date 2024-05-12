@@ -27,12 +27,43 @@ nav {
     background-color: gray;
 }
 
+dialog {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    height: 200px;
+    width: 500px;
+}
+
+dialog button:hover {
+    cursor: pointer;
+}
+
+div.project-container button {
+    height: 25px;
+    width: 75px;
+    border: none;
+}
+
+div.project-container button:hover {
+    background-color: rgb(153, 19, 19);
+    color: white;
+    border: none;
+}
+
 .projects-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
     margin-top: 20px;
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
 }
 
 #create-new-project {
@@ -54,7 +85,7 @@ nav {
 }
 
 .todo-container {
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -63,6 +94,10 @@ nav {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    justify-items: center;
+    grid-auto-rows: auto;
+    row-gap: 40px;
 }
 
 .todo-card {
@@ -70,4 +105,41 @@ nav {
     grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 200px;
     background-color: #e4e4e4;
+    align-items: center;
+    justify-items: center;
+    width: 400px;
+    border: 1px black solid;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container button, #project-submit-button,
+#close-project-modal, #todo-submit-button,
+#close-todo-modal {
+    border: 1px solid black;
+    width: 250px;
+    margin: 2px;
+}
+
+.edit-button:hover {
+    background-color: yellow;
+}
+
+.card-remove-button:hover {
+    background-color: rgb(153, 19, 19);
+    color: white;
+}
+
+.edit-button:hover, .card-remove-button:hover,
+button.create-todo:hover, #create-new-project:hover,
+div.project-title:hover, .projects-container button:hover {
+    cursor: pointer;
+}
+
+div.project-title {
+    margin: 2px 0;
 }
