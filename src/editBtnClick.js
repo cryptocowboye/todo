@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 
-export default function editBtnClick (projObj, thisObj, title, description, date, priority, todoObj) {
+export default function editBtnClick (projObj, thisObj, title, description, date, priority, todoObj, todoCardElement) {
     const dialog = document.createElement("dialog");
     const form = document.createElement("form");
     const p1 = document.createElement("p");
@@ -55,7 +55,8 @@ export default function editBtnClick (projObj, thisObj, title, description, date
     select.name = "priority-colors-edit";
     select.id = "todo-priority-edit";
 
-    option1.textContent = "---Please choose an option---";
+    option1.textContent = "Purple";
+    option1.value = "purple";
     option2.value = "red";
     option2.textContent = "Red";
     option3.value = "yellow";
@@ -98,10 +99,12 @@ export default function editBtnClick (projObj, thisObj, title, description, date
 
         thisObj.replaceProject(projObj);
 
-        title.textContent = input1.value
-        description.textContent = input2.value
-        date.textContent = input3.value
-        priority.textContent = select.value
+        title.textContent = editedToDo.title
+        description.textContent = editedToDo.desc
+        date.textContent = editedToDo.date
+        priority.textContent = editedToDo.priority
+
+        todoCardElement.style.backgroundColor = `${editedToDo.priority}`
 
         localStorage.setItem("appStorage", JSON.stringify(thisObj));
 
