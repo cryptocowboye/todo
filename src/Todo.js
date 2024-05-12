@@ -1,8 +1,11 @@
+import {format} from 'date-fns'
+import dateEditor from './dateEditor'
+
 export default class Todo {
     constructor(title, desc, date, priority, index) {
         this.title = title
         this.desc = desc
-        this.date = date
+        this.date = format(dateEditor(new Date(date)), 'MMMM d, yyyy')
         this.priority = priority
         this.index = index
     }
